@@ -44,3 +44,4 @@ CSV	Raw data storage	Human-readable, widely compatible	Large size, no type prese
 Parquet	Processed data storage	Efficient compression, type preservation, fast queries	Binary (not human-readable)
 
 ## How your code reads/writes using env variables
+Store the folder path in env, define the file name, combine the two to form a complete path, and then store and read the dataframe
