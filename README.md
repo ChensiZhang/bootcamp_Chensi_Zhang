@@ -31,3 +31,17 @@ Create interface → Deployment → Inventory dashboard
 /notebooks/: Jupyter notebooks
 /docs/: Project documentation
 Weekly updates every Friday with descriptive commit messages.
+
+# Data Storage
+
+## Folder structure
+data/
+raw/          # Stores raw data (CSV format)
+processed/    # Stores processed data (Parquet format)
+
+## Formats used and why
+CSV	Raw data storage	Human-readable, widely compatible	Large size, no type preservation
+Parquet	Processed data storage	Efficient compression, type preservation, fast queries	Binary (not human-readable)
+
+## How your code reads/writes using env variables
+Store the folder path in env, define the file name, combine the two to form a complete path, and then store and read the dataframe
