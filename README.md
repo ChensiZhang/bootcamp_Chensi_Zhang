@@ -45,3 +45,27 @@ Parquet	Processed data storage	Efficient compression, type preservation, fast qu
 
 ## How your code reads/writes using env variables
 Store the folder path in env, define the file name, combine the two to form a complete path, and then store and read the dataframe
+
+# cleaing strategy
+
+## Assumptions of the fill_missing_median Function
+
+Numeric Data: By default, it only processes numeric columns, assuming non-numeric columns do not require filling or should be handled by other methods
+Median Appropriateness: Assumes that the median is a reasonable choice for filling missing values. If the data is highly skewed or the business context requires other imputation methods , this may not be appropriate.
+Column Independence: Assumes that missing value imputation for each column does not depend on other columns.
+
+## Assumptions of the drop_missing Function
+
+Missingness Mechanism: Assumes that missing data is random, and dropping it will not introduce bias. If missingness follows a specific pattern, deletion may distort the sample.
+Threshold Selection: The threshold parameter assumes the user can set a reasonable ratio, but it does not validate whether the threshold is appropriate for the dataset size.
+Column Specification: If columns are provided, it assumes missing values in these columns are critical, while missing values in other columns can be ignored.
+
+## Assumptions of the normalize_data Function
+
+Need for Scaling: Assumes the input data requires normalization. If the data is already standardized or does not require scaling, this step is redundant.
+
+Method Choice:
+minmax assumes clear data boundaries.
+StandardScaler assumes the data is approximately normally distributed, and the mean and standard deviation are representative of the distribution.
+Sensitivity to Outliers: Both methods are affected by outliers, assuming the data has been cleaned or outliers handled beforehand.
+
