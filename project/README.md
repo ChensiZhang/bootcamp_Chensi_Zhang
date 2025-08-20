@@ -44,8 +44,8 @@ Feature branches for development. Merge to `main` upon completion of each major 
 
 ## Folder structure
 data/
-raw/          # Stores raw data (CSV format)
-processed/    # Stores processed data (Parquet format)
+raw/          
+processed/    
 
 ## Formats used and why
 CSV	Raw data storage	Human-readable, widely compatible	Large size, no type preservation
