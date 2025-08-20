@@ -3,34 +3,42 @@
 **Stage:** Problem Framing & Scoping (Stage 01)
 
 ## Problem Statement
-Local small retailers face inefficient inventory management, leading to frequent overstocking or stockouts. This issue results in excessive capital tie-up and lost sales opportunities. By analyzing sales data and inventory turnover rates, we can help retailers optimize their inventory levels to reduce costs and improve availability.
+Predicting Apple Inc. (AAPL) stock price movements is crucial for investors, traders, and financial analysts to make informed decisions. Stock prices are influenced by a complex interplay of factors including company performance, market sentiment, macroeconomic indicators, and news events. Traditional statistical models often struggle to capture these non-linear relationships and temporal dependencies. A deep learning approach has the potential to identify complex patterns in historical data and generate more accurate forecasts, thereby providing a valuable tool for investment strategy and risk management.
 
 ## Stakeholder & User
-The primary stakeholder is the retail store manager, who will decide whether to adopt our solution. The end users are inventory staff who will use the system daily. The solution must provide recommendations one week before monthly inventory audits.
+The primary stakeholder are  quantitative analysts, algorithmic traders, and investment portfolio managers. Fund managers and individual investors who will use the predictions to inform buy/sell/hold decisions.Predictions are needed daily, ideally before the market opens. The output should be easily integratable into existing trading platforms or dashboards for real-time decision support.
 
 ## Useful Answer & Decision
-This is a predictive analysis problem. We will deliver:optimal inventory level predictions；A dashboard displaying recommended stock levels；Key metric: Model accuracy (error rate arange)
+Predictive (aiming for directional accuracy - predicting if the price will go UP or DOWN the next day, and the predicted closing price).
+Goodness of fit (R^2) , Mean Absolute Error (MAE) or Root Mean Squared Error (RMSE) for price value prediction.
+A trained deep learning model serialized for production.
 
 ## Assumptions & Constraints
-historical sales data available;prediction updates required;Solution must run on standard laptops;External factors excluded
+Historical daily OHLCV (Open, High, Low, Close, Volume) data for AAPL is obtainable via APIs.
+Model training is a one-time intensive compute task, but daily inference is lightweight.
+Daily predictions do not require ultra-low latency.
+The project is for research and educational purposes. Any real-world financial application must comply with relevant regulations.
+The model will use a fixed historical window to predict the next day's price.
 
 ## Known Unknowns / Risks
-Uncertain impact of promotional events on sales；Potential data quality issues；User adoption challenges
-Mitigation: Analyze historical promotion data, conduct data quality checks, and test prototypes with users.
+The efficient market hypothesis suggests significant price movements might be fundamentally unpredictable, limiting maximum accuracy.
+High risk of overfitting to noise in the historical data due to the stochastic nature of markets. Will be mitigated using rigorous walk-forward validation and dropout layers.
+Market regimes change. Model performance will be monitored continuously for degradation, and retraining schedules will be established.
+Unforeseen "black swan" events are not captured in historical data and will cause prediction errors.
 
 ## Lifecycle Mapping
 Goal → Stage → Deliverable
-Define inventory optimization problem → Problem Framing & Scoping → Scoping document
-Collect/process data → Data Collection & Processing → Cleaned dataset
-Develop model → Modeling → Predictive model
-Create interface → Deployment → Inventory dashboard
+Define Prediction Goal & Success Metrics → Problem Framing & Scoping → Project Charter (this document)
+Acquire & Process Financial Data → Data Acquisition & Preparation → Cleaned, featurized dataset(s)
+Develop & Train Predictive Models → Modeling & Analysis → Trained Model Files & Performance Report
+Deploy Model for Daily Inference → Deployment & Integration → Prediction API/Service
 
 ## Repo Plan
 /data/: Raw and processed data
 /src/: Python scripts
 /notebooks/: Jupyter notebooks
 /docs/: Project documentation
-Weekly updates every Friday with descriptive commit messages.
+Feature branches for development. Merge to `main` upon completion of each major stage. Daily commits encouraged.
 
 # Data Storage
 
