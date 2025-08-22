@@ -77,3 +77,11 @@ minmax assumes clear data boundaries.
 StandardScaler assumes the data is approximately normally distributed, and the mean and standard deviation are representative of the distribution.
 Sensitivity to Outliers: Both methods are affected by outliers, assuming the data has been cleaned or outliers handled beforehand.
 
+# feature definition
+
+ln_open = log(1+open)
+ln_close = log(1+close)
+ln_high = log(1+high)
+ln_low = log(1+low)
+open/close 
+high/low
