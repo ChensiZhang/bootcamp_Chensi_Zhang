@@ -85,3 +85,49 @@ ln_high = log(1+high)
 ln_low = log(1+low)
 open/close 
 high/low
+
+# ML Prediction App
+
+This repository provides a simple machine learning model prediction service.  
+It supports both **Flask API** and **Streamlit Dashboard** for user interaction.
+
+##  Setup Instructions
+
+### 1. Clone the repository
+
+### 2.Create virtual environment (optional but recommended)
+
+### 3.Install dependencies
+
+### 4.Run the app
+
+## example
+
+curl -X POST http://127.0.0.1:5000/predict \
+     -H "Content-Type: application/json" \
+     -d '{"features": [1.2, 3.4]}'
+
+{"prediction": 42.0}
+
+## Assumptions
+
+Trained model is saved at model/model.pkl
+
+Input must contain two numeric features
+
+## Risks
+
+No input validation (invalid inputs may cause errors)
+
+Flask server is not suitable for production (use Gunicorn/Waitress for deployment)
+
+## Next Steps
+
+Add input validation and error handling
+
+Add unit tests for API endpoints
+
+Dockerize the application for easier deployment
+
+Deploy to cloud (Heroku, AWS, etc.)
+
