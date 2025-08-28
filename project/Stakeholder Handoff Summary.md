@@ -1,4 +1,4 @@
-## 📑 Stakeholder Handoff Summary
+## Stakeholder Handoff Summary
 
 ### Overview of Project and Purpose
 This project provides a lightweight machine learning prediction service with two interfaces:
